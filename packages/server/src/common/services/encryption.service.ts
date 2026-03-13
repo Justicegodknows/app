@@ -35,7 +35,7 @@ export class EncryptionService {
         encrypted += cipher.final('hex');
 
         // Get auth tag
-        const authTag = cipher.getAuthTag();
+        const authTag = (cipher as any).getAuthTag();
 
         return {
             encrypted: `${iv.toString('hex')}:${encrypted}:${authTag.toString('hex')}`,
@@ -68,7 +68,7 @@ export class EncryptionService {
 
         // Create decipher
         const decipher = crypto.createDecipheriv(this.algorithm, key, iv);
-        decipher.setAuthTag(authTag);
+        (decipher as any).setAuthTag(authTag);
 
         // Decrypt
         let decrypted = decipher.update(encrypted, 'hex', 'utf8');

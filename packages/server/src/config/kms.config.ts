@@ -1,5 +1,3 @@
-import { AWS } from 'aws-sdk';
-
 export interface KmsConfig {
     region: string;
     keyId: string;

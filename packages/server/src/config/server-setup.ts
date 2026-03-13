@@ -1,8 +1,8 @@
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import * as helmet from 'helmet';
-import { apiLimiter, authLimiter } from './common/middleware/rate-limit.middleware';
-import { setupSwagger } from './config/swagger.config';
+import { apiLimiter, authLimiter } from '../common/middleware/rate-limit.middleware';
+import { setupSwagger } from './swagger.config';
 
 export async function setupServer(app: INestApplication): Promise<void> {
     // Security

@@ -8,11 +8,8 @@ export function setupSwagger(app: INestApplication): void {
             'GDPR-compliant healthcare management system with patient records, appointments, and consent tracking',
         )
         .setVersion('1.0.0')
-        .setContact({
-            name: 'Data Protection Officer',
-            email: process.env.DPO_EMAIL || 'dpo@healthcare.com',
-        })
-        .setLicense(
+        .addContact('Data Protection Officer', undefined, process.env.DPO_EMAIL || 'dpo@healthcare.com')
+        .addLicense(
             'Proprietary',
             'Licensed under EU GDPR and German medical data protection regulations',
         )
