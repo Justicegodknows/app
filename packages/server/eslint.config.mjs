@@ -4,11 +4,11 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import { commonRules } from '../web-shared/eslint/common-rules.mjs';
+import { commonRules } from '../shared/eslint/common-rules.mjs';
 
 export default tseslint.config(
   {
-    ignores: ['eslint.config.mjs'],
+    ignores: ['eslint.config.mjs', 'dist', 'node_modules', 'generated'],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
